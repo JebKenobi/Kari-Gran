@@ -1,0 +1,6 @@
+/uploads/
+*.min-ck.js
+*-ck.js
+/js/*ck.js
+*.scssc
+*.css
