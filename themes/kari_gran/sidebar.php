@@ -24,27 +24,31 @@
 				<div class="side-cats">
 					<h3>Categories</h3>
 					<ul>
-						<li class="knowledge"><a href="#"><span>></span> Knowledge is Power</a></li>
-						<li class="nutrition"><a href="#"><span>></span> Nutrition</a></li>
-						<li class="skin-care"><a href="#"><span>></span> Skin Care</a></li>
-						<li class="things-we-love"><a href="#"><span>></span> Things We Love</a></li>
-						<li class="archive"><a href="#"><span>></span> Archive</a></li>
+						<?php
+						$categories = get_categories();
+						foreach ($categories as $cat) { ?>
+							<li class="cat cat-<?php echo $cat->cat_ID; ?>"><a href="<?php echo get_category_link( $cat->term_id ); ?>"><span>></span> <?php echo $cat->name; ?></a></li>
+						<?php } ?>
 					</ul>
 				</div>
 				<div class="side-trends">
 					<ul>
 						<li id="trending" class="active"><a class="tab">Trending <span class="arrow"></span></a>
 							<ul>
-								<li><img src="images/thumb.jpg" align="left" border="0" /><a href="#">My New Holy Grail Lip Balm</a> <span class="date">01/20/2014</span></li>
-								<li><img src="images/thumb.jpg" align="left" border="0" /><a href="#">My New Holy Grail Lip Balm</a> <span class="date">01/20/2014</span></li>
-								<li><img src="images/thumb.jpg" align="left" border="0" /><a href="#">My New Holy Grail Lip Balm</a> <span class="date">01/20/2014</span></li>
+								<?php
+									$trending_posts = wp_get_recent_posts('orderby=comment_count&numberposts=3');
+									foreach( $trending_posts as $trend ) { ?>
+									<li><?php echo get_the_post_thumbnail($trend["ID"], 'thumbnail'); ?> <a href="<?php echo get_permalink($trend["ID"]); ?>"> <?php echo $trend["post_title"]; ?></a> <span class="date"><?php echo get_the_time('m/d/Y', $trend["ID"]); ?></span></li>
+									<?php } ?>
 							</ul>
 						</li>
 						<li id="recent"><a class="tab">Recent <span class="arrow"></span></a>
 							<ul>
-								<li><img src="images/thumb.jpg" align="left" border="0" /><a href="#">4 Steps to Healthy Skin</a> <span class="date">02/20/2014</span></li>
-								<li><img src="images/thumb.jpg" align="left" border="0" /><a href="#">4 Steps to Healthy Skin</a> <span class="date">02/20/2014</span></li>
-								<li><img src="images/thumb.jpg" align="left" border="0" /><a href="#">4 Steps to Healthy Skin</a> <span class="date">02/20/2014</span></li>
+								<?php
+									$recent_posts = wp_get_recent_posts('orderby=post_date&numberposts=3');
+									foreach( $recent_posts as $recent ) { ?>
+									<li><?php echo get_the_post_thumbnail($recent["ID"], 'thumbnail'); ?> <a href="<?php echo get_permalink($recent["ID"]); ?>"> <?php echo $recent["post_title"]; ?></a> <span class="date"><?php echo get_the_time('m/d/Y', $recent["ID"]); ?></span></li>
+									<?php } ?>
 							</ul>
 						</li>
 				</div>
@@ -63,7 +67,7 @@
 					<h3>Contact</h3>
 					<p>We would love to hear from you, please feel free to email or call us at any time.</p>
 					<span class="phone"><div data-icon="a" class="icon"></div>206.257.1226</span>
-					<span class="email"><div data-icon="b" class="icon"></div><a href="emailto:info@karigran.com">info@karigran.com</a></span> 
+					<span class="email"><div data-icon="b" class="icon"></div><a href="emailto:info@karigran.com">info@karigran.com</a></span>
 					<p><strong>Wheels Up LLC/Kari Gran</strong> <br />1735 Westlake Ave North #500 <br />Seattle, Washington 98109 <br />Monday - Friday <br />9:00AM - 5:00 PM PST</p>
 				</div>
 </section><!-- #secondary -->

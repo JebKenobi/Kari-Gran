@@ -190,16 +190,16 @@ header#masthead {
 		text-indent: -9999px;
 		margin-bottom: 40px;
 	}
-	.cat.cat-8, .cat.cat-8 a, #sidebar .cat-item-8 a span {
+	.cat.cat-8, .cat.cat-8 a, #sidebar .cat-8 a span {
 		color: $teal;
 	}
-	.cat.cat-6, .cat.cat-6 a, #sidebar .cat-item-6 a span {
+	.cat.cat-6, .cat.cat-6 a, #sidebar .cat-6 a span {
 		color: $grn;
 	}
-	.cat.cat-1, .cat.cat-1 a, #sidebar .cat-item-1 a span {
+	.cat.cat-1, .cat.cat-1 a, #sidebar .cat-1 a span {
 		color: $tan;
 	}
-	.cat.cat-7, .cat.cat-7 a, #sidebar .cat-item-7 a span {
+	.cat.cat-7, .cat.cat-7 a, #sidebar .cat-7 a span {
 		color: $ylw;
 	}
 	.cat.archive, .cat.archive a, #sidebar .archive a span {
@@ -212,6 +212,15 @@ header#masthead {
 			text-align: left;
 			margin-top: -6px;
 
+			.post-thumbnail {
+				display: inline-block;
+				height: 288px;
+				overflow: hidden;
+				img {
+					width: 100%;
+					height: auto;
+				}
+			}
 			.entry-meta {
 				width: 15%; /* fallback for browsers without support for calc() */
 				float: left;
@@ -387,16 +396,16 @@ header#masthead {
 				li a:hover {
 					color: #fff;
 				}
-				.cat-item-8 a:hover {
+				.cat-8 a:hover {
 					background-color: $teal;
 				}
-				.cat-item-6 a:hover {
+				.cat-6 a:hover {
 					background-color: $grn;
 				}
-				.cat-item-1 a:hover {
+				.cat-1 a:hover {
 					background-color: $tan;
 				}
-				.cat-item-7 a:hover {
+				.cat-7 a:hover {
 					background-color: $ylw;
 				}
 				.archive a:hover {
@@ -486,6 +495,9 @@ header#masthead {
 
 					img {
 						padding-right: 10px;
+						height: 50px;
+						width: auto;
+						float: left;
 					}
 					a {
 						display: block;

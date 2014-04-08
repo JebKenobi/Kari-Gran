@@ -15,7 +15,6 @@
 <?php } else { ?>
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <?php } ?>
-	<?php twentyfourteen_post_thumbnail(); ?>
 
 	<header class="entry-header">
 		<?php if ( in_array( 'category', get_object_taxonomies( get_post_type() ) ) && twentyfourteen_categorized_blog() ) : ?>
@@ -39,12 +38,14 @@
 	<div class="entry-content summary">
 		<span class="cat cat-<?php echo $slug; ?>"><?php echo $category[0]->cat_name; ?></span>
 		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+		<?php twentyfourteen_post_thumbnail(); ?>
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 	<?php else : ?>
 	<div class="entry-content">
 		<span class="cat cat-<?php echo $slug; ?>"><?php echo $category[0]->cat_name; ?></span>
 		<h1><?php the_title(); ?></h1>
+		<?php twentyfourteen_post_thumbnail(); ?>
 		<?php
 			the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyfourteen' ) );
 			wp_link_pages( array(
