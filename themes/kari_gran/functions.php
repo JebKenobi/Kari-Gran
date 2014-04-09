@@ -23,3 +23,15 @@ remove_action('wp_head', 'wp_generator');
 if ( function_exists( 'add_image_size' ) ) { 
   add_image_size( 'post-hero', 512, 288, true ); //(cropped)
 }
+
+function contributors() {
+  global $wpdb;
+
+  $authors = $wpdb->get_results("SELECT ID, user_nicename from  $wpdb->users WHERE display_name <> 'portent' ORDER BY  display_name");
+
+  foreach ($authors as $author ) { ?>
+    <li><a href="<?php echo get_bloginfo('url'); ?>/author/<?php echo the_author_meta('user_nicename', $author->ID); ?>"><?php echo userphoto($author->ID); ?> <?php echo the_author_meta('display_name', $author->ID); ?></a></li>
+  <?php }
+}
+
+  

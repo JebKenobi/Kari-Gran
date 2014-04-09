@@ -17,9 +17,11 @@
 						<li class="yt"><a href="http://www.youtube.com"><div data-icon="y" class="icon"></div></a></li>
 					</ul>
 				</div>
-				<form id="search">
-					<input type="text" placeholder="Search blog" />
-					<label><div data-icon="s" class="icon"></div><input type="submit" value="" /></label>
+				<form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+				    <div><label class="screen-reader-text" for="s">Search for:</label>
+				        <input type="text" value="" name="s" id="s" placeholder="Search blog" />
+				        <label><div data-icon="s" class="icon"></div><input type="submit" id="searchsubmit" value="" /></label>
+				    </div>
 				</form>
 				<div class="side-cats">
 					<h3>Categories</h3>
@@ -57,10 +59,7 @@
 				<div class="side-contributors">
 					<h3>Authors <span class="arrow"></span></h3>
 					<ul>
-						<li><a href="#"><img src="images/kari-gran.jpg" alt="Kari Gran" border="0" /> Kari Gran</a></li>
-						<li><a href="#"><img src="images/lisa-strain.jpg" alt="Lisa Strain" border="0" /> Lisa Strain</a></li>
-						<li><a href="#"><img src="images/portia-allen.jpg" alt="Portia Allen" border="0" /> Portia Allen</a></li>
-						<li><a href="#"><img src="images/sally-bjornsen.jpg" alt="Sally Bjornsen" border="0" /> Sally Bjornsen</a></li>
+						<?php contributors(); ?>
 					</ul>
 				</div>
 				<div class="side-contact">

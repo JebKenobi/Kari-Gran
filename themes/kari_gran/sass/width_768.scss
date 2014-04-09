@@ -55,7 +55,7 @@ body {
 		.side-trends, .side-contributors {
 			z-index: 90;
 		}
-		form#search {
+		form#searchform {
 			position: absolute;
 			width: 240px;
 			right: -247px;
@@ -533,7 +533,7 @@ body.open {
 			display: inline-block;
 		}
 
-		form#search {
+		form#searchform {
 		}
 		
 		.side-cats.open {
