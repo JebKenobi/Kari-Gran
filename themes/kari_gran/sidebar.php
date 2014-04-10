@@ -67,6 +67,6 @@
 					<p>We would love to hear from you, please feel free to email or call us at any time.</p>
 					<span class="phone"><div data-icon="a" class="icon"></div>206.257.1226</span>
 					<span class="email"><div data-icon="b" class="icon"></div><a href="emailto:info@karigran.com">info@karigran.com</a></span>
-					<p><strong>Wheels Up LLC/Kari Gran</strong> <br />1735 Westlake Ave North #500 <br />Seattle, Washington 98109 <br />Monday - Friday <br />9:00AM - 5:00 PM PST</p>
+					<p><strong>Customer Service Hours</strong> <br />Monday - Friday <br />9:00AM - 5:00 PM PST</p>
 				</div>
 </section><!-- #secondary -->

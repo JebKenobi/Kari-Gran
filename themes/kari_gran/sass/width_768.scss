@@ -31,6 +31,12 @@ body {
 		width: 90%;
 		margin: 0 auto;
 		float: none;
+
+		#comment-area {
+			width: 112%;
+			margin-left: -6.5%;
+			
+		}
 	}
 
 	#sidebar {
@@ -279,19 +285,33 @@ body {
 		}
 		.side-contact {
 			position: absolute;
-			right: -245px;
+			right: -250px;
 			text-align: center;
 			color: #fff;
-			width: 230px;
-			top: 290px;
+			width: 240px;
+			top: 251px;
 			@include transition(top, 0.5s);
 			font-family: $sansH;
 			font-weight: 200;
 			background: url(../images/kari-gran-side_logo.gif) no-repeat 50% 100%;
 			padding-bottom: 100px;
+			z-index: 200;
 
 			h3 {
 				color: #fff;
+				text-align: left;
+				font-family: $serif;
+				font-style: italic;
+				text-transform: none;
+				font-size: 1em;
+				background: #000;
+				padding: 7px 10px;
+				letter-spacing: normal;
+
+			}
+			p, .phone, .email {
+				opacity: 0;
+				display: none;
 			}
 			a {
 				color: $teal;
@@ -444,12 +464,12 @@ header#masthead {
 body.open.side-cats {
 	header#masthead {
 		#nav-main {
-			top: 375px;
+			top: 328px;
 		}
 	}
 	#blog-main #sidebar {
 		.side-contact {
-			top: 520px;
+			top: 432px;
 		}
 	}
 }
@@ -552,6 +572,61 @@ body.open {
 		}
 	}
 }
+/*body.hide-nav, body.show-nav {
+	header#masthead {
+		#nav-toggle {
+			right: 0;
+			background-color: #252525;
+			width: 100%;
+			z-index: 190;
+
+			div.icon {
+				background-color: #000;
+				width:65px;
+				height: 55px;
+				float: right;
+				padding: 0;
+			}
+			div.icon.close {
+				height: 20px;
+				width: 20px;
+			}
+		}
+		#logo, #nav-toggle {
+			position: fixed;
+		}
+	}
+	#blog-main #sidebar .side-contact, #blog-main #sidebar .side-cats, #blog-main #sidebar .side-trends, #nav-main {
+		position: fixed;
+		right: 10px;
+	}
+}
+body.hide-nav {
+	header#masthead {
+		#logo, #nav-toggle {
+			top: -55px;
+		}
+	}
+}
+body.show-nav {
+	header#masthead {
+		#logo, #nav-toggle {
+			top: 0px;
+		}
+	}
+}
+body.show-nav.open, body.hide-nav.open {
+	header#masthead {
+		#logo {
+			top: 0px;
+			left: 0;
+			z-index: 200;
+		}
+		#nav-main {
+			position: fixed;
+		}
+	}
+}*/
 
 /* Main Content */
 

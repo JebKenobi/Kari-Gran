@@ -34,4 +34,49 @@ function contributors() {
   <?php }
 }
 
+function mytheme_comment($comment, $args, $depth) {
+    $GLOBALS['comment'] = $comment;
+    extract($args, EXTR_SKIP);
+
+    if ( 'div' == $args['style'] ) {
+      $tag = 'div';
+      $add_below = 'comment';
+    } else {
+      $tag = 'li';
+      $add_below = 'div-comment';
+    }
+?>
+    <<?php echo $tag ?> <?php comment_class(empty( $args['has_children'] ) ? '' : 'parent') ?> id="comment-<?php comment_ID() ?>">
+    
+    <div class="comment-meta">
+      <div class="diamond"></div>
+      <div class="comment-author vcard">
+      <?php printf(__('<cite class="fn">%s</cite>'), get_comment_author_link()) ?>
+      </div>
+      <?php if ($comment->comment_approved == '0') : ?>
+          <em class="comment-awaiting-moderation"><?php _e('Your comment is awaiting moderation.') ?></em>
+          <br />
+      <?php endif; ?>
+
+      <span class="date">
+        <?php
+          /* translators: 1: date, 2: time */
+          printf( __('%1$s'), get_comment_date(),  get_comment_time()) ?></a><?php edit_comment_link(__('(Edit)'),'  ','' );
+        ?>
+      </span>
+  </div>
+  <div class="comment-content">
+    <span class="arrow"></span>
+    <div class="container">
+      <?php comment_text() ?>
+
+      <div class="reply">
+      <?php comment_reply_link(array_merge( $args, array('add_below' => $add_below, 'depth' => $depth, 'max_depth' => $args['max_depth']))) ?>
+      </div>
+    </div>
+    
+  </div>
+<?php
+        }
+
   
