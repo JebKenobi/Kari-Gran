@@ -19,25 +19,35 @@ body {
 			display: none;
 		}
 		.col-main {
-			.post .entry-content {
+			.post {
 				width: 100%;
-				border-left: 0;
-				margin: 0 auto;
-				float: none;
-				padding: 7px 0 10px;
-				margin-bottom: 20px;
-				border-bottom: 1px solid $gry;
+				
+				.entry-content {
+					width: 100%;
+					border-left: 0;
+					margin: 0 auto;
+					float: none;
+					padding: 7px 0 10px;
+					margin-bottom: 20px;
+					border-bottom: 1px solid $gry;
 
-				p, img, .cat, .button {
-					display: none;
+					p, img, .cat, .button {
+						display: none;
+					}
 				}
-			}
-			.post .post-meta {
-				width: 100%;
-				float: none;
-				text-align: left;
+				.entry-meta {
+					width: 100%;
+					float: none;
+					text-align: left;
 
-				.diamond {
+					.diamond {
+						display: none;
+					}
+					a {
+						color: $gry;
+					}
+				}
+				.post-thumbnail {
 					display: none;
 				}
 			}

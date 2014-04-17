@@ -23,7 +23,7 @@ if ( post_password_required() ) {
 	<?php if ( have_comments() ) : ?>
 
 	<h2 class="comments-title">
-		<span><?php printf( _n( '%1$s', get_comments_number() ), number_format_i18n( get_comments_number() )); ?></span> Comments
+		<span><?php echo get_comments_number(); ?></span> Comments
 	</h2>
 	<?php $comment_args = array(
 	  'id_form'           => 'commentform',
@@ -90,5 +90,57 @@ if ( post_password_required() ) {
 	<p class="no-comments"><?php _e( 'Comments are closed.', 'twentyfourteen' ); ?></p>
 	<?php endif; ?>
 
+	<?php elseif ( !have_comments() ) : ?>
+		<h2 class="comments-title">
+			<span>0</span> Comments
+		</h2>
+		<?php $comment_args = array(
+		  'id_form'           => 'commentform',
+		  'id_submit'         => 'submit',
+		  'title_reply'       => __( '' ),
+		  'title_reply_to'    => __( 'Reply >' ),
+		  'cancel_reply_link' => __( 'Cancel' ),
+		  'label_submit'      => __( 'Add Comment' ),
+
+		  'comment_field' => '<textarea id="comment" name="comment" cols="45" rows="8" aria-required="true" placeholder="Add a comment">' .
+		    '</textarea>',
+
+		  'must_log_in' => '<p class="must-log-in">' .
+		    sprintf(
+		      __( 'You must be <a href="%s">logged in</a> to post a comment.' ),
+		      wp_login_url( apply_filters( 'the_permalink', get_permalink() ) )
+		    ) . '</p>',
+
+		  'logged_in_as' => '<p class="logged-in-as">' .
+		    sprintf(
+		    __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ),
+		      admin_url( 'profile.php' ),
+		      $user_identity,
+		      wp_logout_url( apply_filters( 'the_permalink', get_permalink( ) ) )
+		    ) . '</p>',
+
+		  'comment_notes_before' => '<p class="comment-notes">' . ( $req ? $required_text : '' ) .
+		    '</p>',
+
+		  'comment_notes_after' => '',
+
+		  'fields' => apply_filters( 'comment_form_default_fields', array(
+
+		    'author' =>
+		      '' .
+		      '<label>' . ( $req ? '<span class="required">*</span>' : '' ) . __( 'Name:', 'domainreference' ) .
+		      '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) .
+		      '" size="30"' . $aria_req . ' /></label>',
+
+		    'email' =>
+		      '<label>' . ( $req ? '<span class="required">*</span>' : '' ) . __( 'Email:', 'domainreference' ) .
+		      '<input id="email" name="email" type="email" value="' . esc_attr(  $commenter['comment_author_email'] ) .
+		      '" size="30"' . $aria_req . ' /></label>',
+
+		    'url' => ''
+		    )
+		  ),
+		); ?>
+		<?php comment_form($comment_args); ?>
 	<?php endif; // have_comments() ?>
 </div><!-- #comments -->

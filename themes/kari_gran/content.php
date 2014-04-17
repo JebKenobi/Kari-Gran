@@ -36,12 +36,16 @@
 		$slug = $category[0]->cat_ID;
 	?>
 	<div class="entry-content summary">
-		<span class="cat cat-<?php echo $slug; ?>"><?php echo $category[0]->cat_name; ?></span>
+		<?php if (!is_category() || !is_archive()) { ?><span class="cat cat-<?php echo $slug; ?>"><?php echo $category[0]->cat_name; ?></span><?php } ?>
 		<h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
 		<?php twentyfourteen_post_thumbnail(); ?>
 		<?php the_excerpt(); ?>
 	</div><!-- .entry-summary -->
 	<?php else : ?>
+	<?php
+		$category = get_the_category(); 
+		$slug = $category[0]->cat_ID;
+	?>
 	<div class="entry-content">
 		<span class="cat cat-<?php echo $slug; ?>"><?php echo $category[0]->cat_name; ?></span>
 		<h1><?php the_title(); ?></h1>

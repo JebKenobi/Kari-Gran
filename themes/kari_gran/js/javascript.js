@@ -27,6 +27,7 @@ $(document).ready(function() {
       $("div.side-cats").removeClass('open');
     } else {
       $("div.side-cats").addClass('open');
+      $("div.side-contact").removeClass('open');
       $("li.shop").removeClass('open');
       $("li.why-we-r-different").removeClass('open');
       $("li.how-to-use").removeClass('open');
@@ -35,6 +36,27 @@ $(document).ready(function() {
       $("body").removeClass('side-cats');
     } else {
       $("body").addClass('side-cats');
+      $("body").removeClass('side-contact');
+      $("body").removeClass('side-shop');
+      $("body").removeClass('side-about');
+      $("body").removeClass('side-how');
+    }
+  });
+  $("div.side-contact h3").click(function () {
+    if ( $("div.side-contact").hasClass( 'open' ) ) {
+      $("div.side-contact").removeClass('open');
+    } else {
+      $("div.side-contact").addClass('open');
+      $("div.side-cats").removeClass('open');
+      $("li.shop").removeClass('open');
+      $("li.why-we-r-different").removeClass('open');
+      $("li.how-to-use").removeClass('open');
+    }
+    if ( $("body").hasClass( 'side-contact' ) ) {
+      $("body").removeClass('side-contact');
+    } else {
+      $("body").addClass('side-contact');
+      $("body").removeClass('side-cats');
       $("body").removeClass('side-shop');
       $("body").removeClass('side-about');
       $("body").removeClass('side-how');
@@ -102,7 +124,11 @@ $(document).ready(function() {
           //Sets the current scroll position
           var st = $(this).scrollTop();
 
-          if (st > 55) {
+          if (st == 0) {
+            $("body").removeClass('hide-nav');
+            $("body").removeClass('show-nav');
+          } else {
+            
             //Determines up-or-down scrolling
             if (st > lastScroll){
                $("body").removeClass('show-nav');
@@ -115,9 +141,6 @@ $(document).ready(function() {
             }
             //Updates scroll position
             lastScroll = st;
-          } else {
-            $("body").removeClass('hide-nav');
-            $("body").removeClass('show-nav');
           }
       });
     });

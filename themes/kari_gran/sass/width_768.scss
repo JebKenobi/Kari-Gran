@@ -58,13 +58,8 @@ body {
 		.side-social, .side-newsletter {
 			display: none;
 		}
-		.side-trends, .side-contributors {
-			z-index: 90;
-		}
 		form#searchform {
-			position: absolute;
 			width: 240px;
-			right: -247px;
 			border-bottom: 0;
 			margin-bottom: 7px;
 
@@ -83,8 +78,6 @@ body {
 			}
 		}
 		.side-cats {
-			position: absolute;
-			right: -250px;
 			margin-bottom: 0;
 			top: 53px;
 			h3 {
@@ -128,10 +121,19 @@ body {
 			}
 		}
 		.side-trends {
-			position: absolute;
-			top: -55px;
+			height: 0px;
+			overflow: visible;
+			position: fixed;
+			top: 0px;
+			right: 65px;
 			font-size: 1em;
 			border-bottom: none;
+			width: 80%;
+			width: -moz-calc(100% + 125px);
+		  	width: -webkit-calc(100% + 125px);
+		  	width: -o-calc(100% + 125px);
+		  	width: calc(100% + 125px);
+		  	@include transition(top 0.5s);
 
 			.tab span.arrow {
 				border-bottom: 15px solid #f4f4f4;
@@ -143,7 +145,7 @@ body {
 				background: none;
 				width: 225px;
 				position: absolute;
-				right: 168px;
+				right: 103px;
 				height: auto;
 			}
 			li#trending, li#recent {
@@ -210,8 +212,8 @@ body {
 
 		
 		.side-contributors {
-			position: absolute;
-			top: -55px;
+			position: fixed;
+			top: 0px;
 			right: 80px;
 			border-bottom: 0;
 			margin-bottom: 0;
@@ -284,18 +286,17 @@ body {
 			@include transition(right, 0.5s);
 		}
 		.side-contact {
-			position: absolute;
-			right: -250px;
 			text-align: center;
 			color: #fff;
 			width: 240px;
 			top: 251px;
-			@include transition(top, 0.5s);
+			@include transition(top 0.5s, height 0.5s);
 			font-family: $sansH;
 			font-weight: 200;
 			background: url(../images/kari-gran-side_logo.gif) no-repeat 50% 100%;
 			padding-bottom: 100px;
 			z-index: 200;
+			height: 50px;
 
 			h3 {
 				color: #fff;
@@ -305,13 +306,20 @@ body {
 				text-transform: none;
 				font-size: 1em;
 				background: #000;
-				padding: 7px 10px;
 				letter-spacing: normal;
+				background: url(../images/side-menu-carrots.png) #000 95% 100% no-repeat;
+				width: 230px;
+				padding: 7px 0 7px 10px;
+				cursor: pointer;
 
+			}
+			h3:hover {
+				color: $tan;
 			}
 			p, .phone, .email {
 				opacity: 0;
-				display: none;
+				height: 0;
+				@include transition(opacity 0.5s);
 			}
 			a {
 				color: $teal;
@@ -336,6 +344,21 @@ body {
 	#sidebar.right {
 		float: right;
 	}
+}
+/* Mobile Side Nav */
+#blog-main #sidebar .side-contact, #blog-main #sidebar .side-cats, #nav-main, #blog-main #sidebar form#searchform {
+	position: fixed;
+	right: -260px;
+	@include transition(right, 0.5s);
+}
+#blog-main #sidebar .side-cats {
+	top: 108px;
+}
+#nav-main {
+	top: 147px;
+}
+#blog-main #sidebar .side-contact {
+	top: 306px;
 }
 
 /* Header */
@@ -378,9 +401,6 @@ header#masthead {
 	}
 	#nav-main {
 		width: 260px;
-		right: -260px;
-		top: 147px;
-		position: absolute;
 		text-align: left;
 		@include transition(top, 0.5s);
 
@@ -431,13 +451,13 @@ header#masthead {
 					}
 				}
 			}
-			li.menu-item-4 {
+			li.menu-item-1132 {
 				margin-top: 2px;
 			}
-			li.menu-item-4, li.menu-item-11, li.menu-item-16 {
+			li.menu-item-1132, li.menu-item-1139, li.menu-item-1144 {
 				background: url(../images/side-menu-carrots.png) #000 95% 100% no-repeat;
 			}
-			li.menu-item-4.open, li.menu-item-11.open, li.menu-item-16.open {
+			li.menu-item-1132.open, li.menu-item-1139.open, li.menu-item-1144.open {
 				background-position: 95% 0%;
 			}
 			li.open {
@@ -455,7 +475,7 @@ header#masthead {
 				background: #000;
 				border-bottom: none;
 			}
-			li.menu-item-22, li.menu-item-24, li.menu-item-23 {
+			li.menu-item-1153, li.menu-item-1152, li.menu-item-1151 {
 				display: none;
 			}
 		}
@@ -469,13 +489,24 @@ body.open.side-cats {
 	}
 	#blog-main #sidebar {
 		.side-contact {
-			top: 432px;
+			top: 487px;
+		}
+	}
+}
+body.open.side-contact {
+	#blog-main #sidebar {
+		.side-contact {
+			height: auto;
+			p, .phone, .email {
+				opacity: 1;
+				height: auto;
+			}
 		}
 	}
 }
 body.open.side-shop {
 	header#masthead #nav-main {
-		li.menu-item-11, li.menu-item-16, li.buzz {
+		li.menu-item-1139, li.menu-item-1144, li.buzz {
 			top: 200px;
 		}
 	}
@@ -487,7 +518,7 @@ body.open.side-shop {
 }
 body.open.side-about {
 	header#masthead #nav-main {
-		li.menu-item-16, li.buzz {
+		li.menu-item-1144, li.buzz {
 			top: 160px;
 		}
 	}
@@ -538,7 +569,6 @@ body.open {
 		}
 		#nav-main {
 			display: block;
-			position: absolute;
 			right: 0;
 			z-index: 85;
 			@include transition(right, 0.5s);
@@ -549,11 +579,11 @@ body.open {
 		top:0;
 		right: 0;
 
-		form#search, .side-cats, .side-contact {
+		form#searchform, .side-cats, .side-contact {
 			display: inline-block;
 		}
-
-		form#searchform {
+		.side-trends, .side-contributors {
+			z-index: 200;
 		}
 		
 		.side-cats.open {
@@ -564,55 +594,57 @@ body.open {
 				opacity: 1;
 			}
 		}
-		.side-contributors {
-			right: -180px;
-		}
-		.side-trends ul {
-			right: -92px;
-		}
+		
+		
+	}
+	#blog-main #sidebar .side-contact, #blog-main #sidebar .side-cats, #nav-main, #blog-main #sidebar form#searchform {
+		right: 10px;
 	}
 }
-/*body.hide-nav, body.show-nav {
+body.hide-nav, body.show-nav {
 	header#masthead {
+		#logo, #nav-toggle {
+			position: fixed;
+			top: 0;
+			z-index: 200;
+			@include transition(top 0.5s);
+		}
+		#logo {
+			left: 0;
+		}
 		#nav-toggle {
+			top: 0;
 			right: 0;
 			background-color: #252525;
 			width: 100%;
 			z-index: 190;
 
 			div.icon {
-				background-color: #000;
+				background: none;
 				width:65px;
-				height: 55px;
+				height: 50px;
 				float: right;
-				padding: 0;
+				padding: 5px 0 0;
+			}
+			div.icon:hover {
+				background-color: #000;
 			}
 			div.icon.close {
 				height: 20px;
 				width: 20px;
+				background-color: #000;
 			}
 		}
-		#logo, #nav-toggle {
-			position: fixed;
-		}
-	}
-	#blog-main #sidebar .side-contact, #blog-main #sidebar .side-cats, #blog-main #sidebar .side-trends, #nav-main {
-		position: fixed;
-		right: 10px;
 	}
 }
 body.hide-nav {
-	header#masthead {
-		#logo, #nav-toggle {
-			top: -55px;
-		}
+	header#masthead #logo, header#masthead #nav-toggle, #blog-main #sidebar .side-trends, #blog-main #sidebar .side-contributors {
+		top: -55px;
 	}
 }
-body.show-nav {
-	header#masthead {
-		#logo, #nav-toggle {
-			top: 0px;
-		}
+body.show-nav, body.show-nav.open, body.hide-nav.open {
+	header#masthead #logo, header#masthead #nav-toggle, #blog-main #sidebar .side-trends, #blog-main #sidebar .side-contributors {
+		top: 0px;
 	}
 }
 body.show-nav.open, body.hide-nav.open {
@@ -622,11 +654,14 @@ body.show-nav.open, body.hide-nav.open {
 			left: 0;
 			z-index: 200;
 		}
-		#nav-main {
-			position: fixed;
+		#nav-toggle div.icon {
+			background: none;
+		}
+		#nav-toggle div.icon.close {
+			background: #252525;
 		}
 	}
-}*/
+}
 
 /* Main Content */
 

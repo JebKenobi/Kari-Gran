@@ -50,5 +50,6 @@
 
 	<section id="blog-main">
 			<header class="banner">
+				<a href="<?php bloginfo ( 'url' ); ?>"></a>
 				<h1>The Kari Blog</h1>
 			</header>

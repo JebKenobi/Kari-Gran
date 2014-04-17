@@ -65,12 +65,11 @@ p strong {
 	background-color: $teal;
 }
 #page {
-	width: 80%;
 	margin: 0 auto;
 	position: relative;
-	max-width: 1025px;
+	width: 1025px;
 	background-color: #fff;
-	min-width: 800px;
+	max-width: 100%;
 }
 
 #masthead, #blog-main, footer {
@@ -143,21 +142,21 @@ header#masthead {
 			}
 			ul {
 				opacity: 0;
-				z-index: 0;
+				z-index: -1;
 				position: absolute;
 			}
 		}
-		li.menu-item-22, li:hover {
+		li.menu-item-1153, li:hover {
 			
 			a {
 			 	color: $pnk;
 			 }
 		}
-		li.menu-item-22 {
+		li.menu-item-1153 {
 			@include background-image(linear-gradient(#fff, #f4f4f4));
 			 border-bottom: 2px solid $pnk;
 		}
-		li.menu-item-24 a {
+		li.menu-item-1152 a {
 			background: url('http://karigran.com/skin/frontend/default/karigran/images/shopping-bag.png') no-repeat 0 0;
 			display: block;
 			width: 20px;
@@ -171,7 +170,7 @@ header#masthead {
 			margin-right: 20px;
 			color: $pnk;
 		}
-		li.menu-item-24 a:hover {
+		li.menu-item-1152 a:hover {
 			background-position: 0 100%;
 			color: #fff;
 		}
@@ -187,19 +186,28 @@ header#masthead {
 		width: 100%;
 		background: url('../images/the-kari-blog.gif') 50% 50% no-repeat;
 		background-size: cover;
-		text-indent: -9999px;
 		margin-bottom: 40px;
+
+		a {
+			position: relative;
+			width:100%;
+			height: 100%;
+			display: inline-block;
+		}
+		h1 {
+			text-indent: -9999px;
+		}
 	}
-	.cat.cat-8, .cat.cat-8 a, #sidebar .cat-8 a span {
+	.cat.cat-13, .cat.cat-13 a, #sidebar .cat-13 a span {
 		color: $teal;
 	}
-	.cat.cat-6, .cat.cat-6 a, #sidebar .cat-6 a span {
+	.cat.cat-1, .cat.cat-1 a, #sidebar .cat-1 a span {
 		color: $grn;
 	}
-	.cat.cat-1, .cat.cat-1 a, #sidebar .cat-1 a span {
+	.cat.cat-4, .cat.cat-4 a, #sidebar .cat-4 a span {
 		color: $tan;
 	}
-	.cat.cat-7, .cat.cat-7 a, #sidebar .cat-7 a span {
+	.cat.cat-12, .cat.cat-12 a, #sidebar .cat-12 a span {
 		color: $ylw;
 	}
 	.cat.archive, .cat.archive a, #sidebar .archive a span {
@@ -625,16 +633,16 @@ header#masthead {
 				li a:hover {
 					color: #fff;
 				}
-				.cat-8 a:hover {
+				.cat-13 a:hover {
 					background-color: $teal;
 				}
-				.cat-6 a:hover {
+				.cat-1 a:hover {
 					background-color: $grn;
 				}
-				.cat-1 a:hover {
+				.cat-4 a:hover {
 					background-color: $tan;
 				}
-				.cat-7 a:hover {
+				.cat-12 a:hover {
 					background-color: $ylw;
 				}
 				.archive a:hover {
@@ -795,6 +803,39 @@ header#masthead {
 		}
 	}
 }
+.archive #blog-main {
+	.col-main #primary #content {
+		header.archive-header {
+			h1 {
+				font-size: 1.2em;
+				font-family: $serif;
+				font-style: italic;
+				text-align: left;
+				color: $gry;
+				padding: 5px 0 20px;
+			}
+			h1.cat-13 {
+				color: $teal;
+			}
+			h1.cat-1 {
+				color: $grn;
+			}
+			h1.cat-4 {
+				color: $tan;
+			}
+			h1.cat-12 {
+				color: $ylw;
+			}
+		}
+		.post {
+			.entry-content {
+				h1 {
+					margin-top: 0;
+				}
+			}
+		}
+	}
+}
 .pagination {
 	clear: both;
 	display: inline-block;
@@ -845,6 +886,11 @@ footer {
 	width: 100%;
 	clear: both;
 	display: inline-block;
+
+	aside {
+		width: 100%;
+		display: inline-block;
+	}
 
 	section.links {
 		width: 50%;
