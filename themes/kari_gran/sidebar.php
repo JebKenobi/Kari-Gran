@@ -40,7 +40,18 @@
 								<?php
 									$trending_posts = wp_get_recent_posts('orderby=comment_count&numberposts=3');
 									foreach( $trending_posts as $trend ) { ?>
-									<li><?php echo get_the_post_thumbnail($trend["ID"], 'thumbnail'); ?> <a href="<?php echo get_permalink($trend["ID"]); ?>"> <?php echo $trend["post_title"]; ?></a> <span class="date"><?php echo get_the_time('m/d/Y', $trend["ID"]); ?></span></li>
+									<li><?php echo get_the_post_thumbnail($trend["ID"], 'thumbnail'); ?> 
+										<a href="<?php echo get_permalink($trend["ID"]); ?>"> 
+											<?php
+												$thetitle = $trend["post_title"];
+												$getlength = strlen($trend["post_title"]);
+												$thelength = 37;
+												echo substr($thetitle, 0, $thelength);
+												if ($getlength > 40) echo "...";
+											?>
+										</a> 
+										<span class="date"><?php echo get_the_time('m/d/Y', $trend["ID"]); ?></span>
+									</li>
 									<?php } ?>
 							</ul>
 						</li>
@@ -49,7 +60,18 @@
 								<?php
 									$recent_posts = wp_get_recent_posts('orderby=post_date&numberposts=3');
 									foreach( $recent_posts as $recent ) { ?>
-									<li><?php echo get_the_post_thumbnail($recent["ID"], 'thumbnail'); ?> <a href="<?php echo get_permalink($recent["ID"]); ?>"> <?php echo $recent["post_title"]; ?></a> <span class="date"><?php echo get_the_time('m/d/Y', $recent["ID"]); ?></span></li>
+									<li><?php echo get_the_post_thumbnail($recent["ID"], 'thumbnail'); ?> 
+										<a href="<?php echo get_permalink($recent["ID"]); ?>">
+											<?php
+												$thetitle = $recent["post_title"];
+												$getlength = strlen($recent["post_title"]);
+												$thelength = 37;
+												echo substr($thetitle, 0, $thelength);
+												if ($getlength > 40) echo "...";
+											?>
+										</a> 
+										<span class="date"><?php echo get_the_time('m/d/Y', $recent["ID"]); ?></span>
+									</li>
 									<?php } ?>
 							</ul>
 						</li>

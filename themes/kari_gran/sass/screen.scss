@@ -19,8 +19,8 @@ $serif: Georgia, serif;
 $pnk: #f23d97;
 $teal: #70cbd2;
 $grn: #c0d62e;
-$ylw: #f4ec08;
-$tan: #d9d1c1;
+$ylw: #fada3c;
+$tan: #c9c2b3;
 $gry: #6c7372;
 
 
@@ -31,7 +31,7 @@ body {
 	width: 100%;
 	text-align: center;
 	font-family: $sans;
-	color: #333;
+	color: #454545;
 	font-size: 16px;
 	line-height: 1.5em;
 	background-color: #fff;
@@ -45,7 +45,7 @@ a {
 	text-decoration: none;
 }
 a:hover, a:active {
-	color: $teal;
+	text-decoration: underline;
 }
 p strong {
 	font-weight: bold;
@@ -94,6 +94,7 @@ p strong {
 	}
 	#sidebar {
 		width: 25%;
+		min-width: 250px;
 	}
 	#sidebar.right {
 		float: right;
@@ -124,15 +125,19 @@ header#masthead {
 		li {
 			padding: 0 10px;
 			margin: 7px 0px;
+			color: lighten(#000, 70%);
 		}
 		li:first-child {
-			border-right: 1px solid $tan;
+			border-right: 1px solid lighten(#000, 70%);
 		}
 	}
 	#nav-main {
 		font-family: $serif;
 		font-style: italic;
 
+		a:hover {
+			text-decoration: none;
+		}
 		li {
 			margin: 15px 0 0;
 			a {
@@ -156,7 +161,7 @@ header#masthead {
 			@include background-image(linear-gradient(#fff, #f4f4f4));
 			 border-bottom: 2px solid $pnk;
 		}
-		li.menu-item-1152 a {
+		li.menu-item-1155 a {
 			background: url('http://karigran.com/skin/frontend/default/karigran/images/shopping-bag.png') no-repeat 0 0;
 			display: block;
 			width: 20px;
@@ -170,7 +175,7 @@ header#masthead {
 			margin-right: 20px;
 			color: $pnk;
 		}
-		li.menu-item-1152 a:hover {
+		li.menu-item-1155 a:hover {
 			background-position: 0 100%;
 			color: #fff;
 		}
@@ -214,6 +219,13 @@ header#masthead {
 		color: $gry;
 	}
 	.col-main {
+		.author-description {
+	  		font-size: 0.95em;
+	  		margin: 7px 0 40px;
+	  		text-align: left;
+	  		padding-bottom: 30px;
+	  		border-bottom: 1px solid #f3f3f3;
+	  	}
 		.post {
 			clear: both;
 			display: inline-block;
@@ -229,46 +241,132 @@ header#masthead {
 					height: auto;
 				}
 			}
+			ul#socialCount {
+				position: absolute;
+				left: -55px;
+				top: 25px;
+				width: 50px;
+				overflow: visible;
+				margin-left: 0;
+
+				li {
+					list-style-type: none;
+					position: relative;
+					color: #333;
+
+					a {
+						display: inline-block;
+						color: #333;
+					}
+					a:hover {
+						text-decoration: none;
+					}
+					div {
+						font-size: 1.7em;
+					}
+					span.count {
+						font-size: 0.8em;
+					}
+				}
+				span.text {
+					color: #898989;
+					text-transform: uppercase;
+					font-size: 0.8em;
+				}
+				li#comment_icon {
+					width: 130px;
+					position: relative;
+					left: -55px;
+					div {
+						color: $teal;
+						font-size: 1.7em;
+						font-weight: 200;
+					}
+					span.text {
+						text-transform: none;
+						font-weight: bold;
+						position: relative;
+						top: -7px;
+					}
+					span.count {
+						position: absolute;
+						width: 27px;
+						color: #fff;
+						text-align: center;
+						top:2px;
+						left: 0;
+					}
+				}
+				li.facebook a:hover {
+					color: #3b5998;
+				}
+				li.pinterest a:hover {
+					color: #c92228;
+				}
+				li.twitter a:hover {
+					color: #4099ff;
+				}
+				li#mail {
+					margin-right: 0;
+				}
+				li#mail a:hover {
+					color: $teal;
+				}
+			}
 			.entry-meta {
 				width: 15%; /* fallback for browsers without support for calc() */
 				float: left;
 				color: lighten(#000, 70%);
 				font-size: 0.8em;
-			  	width: -moz-calc(0% + 110px);
-			  	width: -webkit-calc(0% + 110px);
-			  	width: -o-calc(0% + 110px);
-			  	width: calc(0% + 110px);
+			  	width: -moz-calc(0% + 100px);
+			  	width: -webkit-calc(0% + 100px);
+			  	width: -o-calc(0% + 100px);
+			  	width: calc(0% + 100px);
 			  	line-height: 1.4em;
 			  	text-align: right;
 			  	position: relative;
 			  	margin-top: 4px;
 
+			  	a {
+			  		color: lighten(#000, 70%);
+			  	}
 			  	.diamond {
 			  		background-color: $tan;
 			  		height:10px;
 			  		width:7px;
 			  		@include transform(skew(10deg, 10deg) rotate(45deg));
 			  		position: absolute;
-			  		right: -28px;
+			  		right: -18px;
 			  		top: 2px;
+			  		z-index: 10;
 			  	}
 			}
 			.entry-content {
 				width: 80%; /* fallback for browsers without support for calc() */
 				float: right;
-			  	width: -moz-calc(100% - 155px);
-			  	width: -webkit-calc(100% - 155px);
-			  	width: -o-calc(100% - 155px);
-			  	width: calc(100% - 155px);
-			  	padding-left: 20px;
+			  	width: -moz-calc(100% - 160px);
+			  	width: -webkit-calc(100% - 160px);
+			  	width: -o-calc(100% - 160px);
+			  	width: calc(100% - 160px);
+			  	padding-left: 15px;
 			  	border-left: 1px solid #f5f5f5;
-			  	margin-left: 20px;
+			  	margin-left: 0px;
 			  	padding-bottom: 40px;
+			  	position: relative;
+			  	margin-right:30px;
 
-			  	ul li {
-			  		float: none;
-			  		list-style-type: disc;
-			  	}
+			  	ul {
+					font-family: $sans;
+					margin-left: 20px;
+					font-size: 0.95em;
+					line-height: 1.5em;
+
+					li {
+						margin-bottom: 15px;
+						float: none;
+			  			list-style-type: disc;
+					}
+				}
 
 			  	.cat {
 			  		font-family: $serif;
@@ -369,6 +467,11 @@ header#masthead {
 				display: inline-block;
 				width: 95%;
 				padding-bottom: 40px;
+
+				.logged-in-as {
+					text-align: right;
+					padding-right: 10px;
+				}
 
 				textarea, label, label input[type="text"], label input[type="email"] {
 					font-style: italic;
@@ -558,6 +661,9 @@ header#masthead {
 						display: inline-block;
 						@include transition(background-color 0.4s);
 					}
+					a:hover {
+						text-decoration: none;
+					}
 					.icon {
 						font-size: 20px;
 
@@ -616,6 +722,9 @@ header#masthead {
 		}
 		.side-cats {
 			margin-bottom: 40px;
+			a:hover {
+				text-decoration: none;
+			}
 			ul {
 				li {
 					font-family: $serif;
@@ -688,7 +797,7 @@ header#masthead {
 					border-left: 10px solid transparent; 
 					border-right: 10px solid transparent; 
 					position: absolute;
-					left: 50%;
+					left: 40%;
 				}
 			}
 			li#trending {
@@ -696,8 +805,10 @@ header#masthead {
 			}
 			li#trending, li#recent {
 				float: left;
-				padding: 4px 4px 6px;
+				padding: 4px 0px 6px;
 				border-bottom: 1px solid #d4d4d4;
+				width:49.5%;
+				text-align: center;
 			}
 			li#trending.active, li#recent.active {
 				.tab {
@@ -710,7 +821,7 @@ header#masthead {
 			}
 			li#recent {
 				float: right;
-				padding-left: 10px;
+				padding-left: 0px;
 			}
 			li ul {
 				opacity: 0;
@@ -722,6 +833,7 @@ header#masthead {
 				left: 0;
 				top: 50px;
 				background: none;
+				text-align: left;
 
 				li {
 					clear: both;
@@ -757,6 +869,10 @@ header#masthead {
 			border-bottom: 1px solid #f3f3f3;
 			padding-bottom: 15px;
 			margin-bottom: 40px;
+
+			a {
+				color: #333;
+			}
 			ul {
 				width: 100%;
 				display: inline-block;
@@ -783,10 +899,7 @@ header#masthead {
 		}
 		.side-contact {
 			a {
-				color: $teal;
-			}
-			a:hover {
-				color: $pnk;
+				color: #333;
 			}
 			p {
 				margin: 10px 0 15px;
@@ -836,7 +949,7 @@ header#masthead {
 		}
 	}
 }
-.pagination {
+#pagination {
 	clear: both;
 	display: inline-block;
 	width: 100%;
@@ -879,10 +992,42 @@ header#masthead {
 			color: #666;
 		}
 	}
+	.loop-pagination {
+		display: inline-block;
+		font-family: $sansH;
+		font-weight: 200;
+
+		span.page-numbers, a.page-numbers {
+			padding: 5px 10px;
+		}
+		span.page-numbers, a.page-numbers:hover {
+			background-color: #b2b2b2;
+			color: #e5e5e5;
+		}
+		a.page-numbers {
+			background-color: #e5e5e5;
+			color: #b2b2b2;
+		}
+		a.next, span.dots, a.prev {
+			background: none;
+			color: #b2b2b2;
+		}
+		a.next, a.prev {
+			font-family: $serif;
+			color: #333;
+			font-style: italic;
+		}
+		a.next:hover, a.prev:hover {
+			background: none;
+			color: $pnk;
+			text-decoration: none;
+		}
+	}
 }
 
 /* Footer */
 footer {
+	padding-top: 40px;
 	width: 100%;
 	clear: both;
 	display: inline-block;
@@ -936,6 +1081,7 @@ footer {
 					@include border-radius(20px);
 					display: inline-block;
 					@include transition(background-color 0.4s);
+					text-decoration: none;
 				}
 				.icon {
 					font-size: 20px;
@@ -969,7 +1115,7 @@ footer {
 			}
 		}
 	}
-	form#newsletter {
+	form#mc-embedded-subscribe-form {
 		text-align: left;
 		display: block;
 		input[type="email"] {
@@ -993,28 +1139,13 @@ footer {
 			float: left;
 		}
 		input[type="submit"] { 
-		   background-color: $pnk;
+		   background: url(http://karigran.com/skin/frontend/default/karigran/images/btn-newsletter-go.png) no-repeat;
+		   height: 32px;
+		   width: 40px;
 		   border: none;
 		   padding: 5px 10px;
-		   color: #fff;
-		   text-transform: uppercase;
-		   font-style: italic;
-		   font-size: 1em;
-		   font-family: $serif;
 		   cursor: pointer;
-		}
-		input[type="submit"]:hover {
-			background-color: $teal;
-		}
-		input[type="submit"]::after {
-		   content:" what";
-		   position: absolute;
-		   width: 0;
-		   height: 0;
-		   border-top: 13px solid transparent;
-		   border-left: 26px solid purple;
-		   border-bottom: 13px solid transparent;
-		   margin: 13px 0 0 -25px;
+		   text-indent: -9999px;
 		}
 	}
 	.copyright {
@@ -1024,6 +1155,9 @@ footer {
 		color: $gry;
 		font-size: 0.8em;
 	}
+}
+@media screen and (max-width: 960px) {
+	@import "width_960";
 }
 @media screen and (max-width: 782px) {
 	@import "width_768";

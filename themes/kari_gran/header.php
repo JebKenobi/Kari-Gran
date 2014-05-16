@@ -27,7 +27,39 @@
 	<!--[if lt IE 9]>
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
+	<? if (is_single()) { ?>
+		<?php $image_id = get_post_thumbnail_id();
+		$image_url = wp_get_attachment_image_src($image_id,'large', true);
+		  ?>
+		<meta name="twitter:card" content="summary">
+	    <meta name="twitter:creator" content="@KariGranSkin">
+	    <meta property="og:title" content="<?php the_title(); ?>" />
+	    <meta property="og:type" content="article" />
+	    <meta property="og:url" content="<?php the_permalink(); ?>" />
+	    <meta property="og:image" content="<?php echo $image_url[0]; ?>" />
+	    <meta property="og:description" content="" />
+	<?php } ?>
 	<?php wp_head(); ?>
+	<!-- BEGIN GOOGLE ANALYTICS CODEs -->
+
+	<noscript>
+		<iframe src="//www.googletagmanager.com/ns.html?id=GTM-TW4GFW" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+	</noscript>
+
+	<script type="text/javascript">
+	//<![CDATA[
+	    var _gaq = _gaq || [];
+			
+	_gaq.push(['_setAccount', 'UA-32937763-1']);
+	_gaq.push(['_trackPageview']);
+					
+	    	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+		'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+		})(window,document,'script','dataLayer','GTM-TW4GFW');
+	//]]>
+	</script>
 </head>
 
 <body <?php body_class(); ?>>
@@ -35,10 +67,10 @@
 
 	<header id="masthead" class="site-header" role="banner">
 		<div class="header-main">
-			<a href="<?php bloginfo ( 'url' ); ?>" id="logo"><img src="<?php bloginfo( 'stylesheet_directory' ); ?>/images/kari-gran.gif" height="79" width="201" alt="Kari Gran - Be Kind to Your Skin" /></a>
+			<a href="<?php bloginfo ( 'url' ); ?>" id="logo"><img src="http://karigran.com/skin/frontend/default/karigran/images/kg-logo.png" height="66" width="201" alt="Kari Gran - Be Kind to Your Skin" /></a>
 			<span id="nav-toggle"><div data-icon="m" class="icon"></div><div data-icon="x" class="icon close"></div></span>
 			<ul id="nav-super">
-				<li><a>Free Shipping</a></li>
+				<li>Free Shipping</li>
 				<li><a href="https://karigran.com/customer/account/login/">My Account</a></li>
 			</ul>
 			<nav id="nav-main" class="site-navigation primary-navigation" role="navigation">
@@ -51,5 +83,4 @@
 	<section id="blog-main">
 			<header class="banner">
 				<a href="<?php bloginfo ( 'url' ); ?>"></a>
-				<h1>The Kari Blog</h1>
 			</header>

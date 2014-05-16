@@ -21,8 +21,30 @@ get_header(); ?>
 					 * use this in a child theme, then include a file called called content-___.php
 					 * (where ___ is the post format) and that will be used instead.
 					 */
+					?>
+					<script>
+						var controller;
+						$(document).ready(function($) {
+							// init controller
+							controller = new ScrollMagic();
+						});
+					</script>
+					<?php
 					get_template_part( 'content', get_post_format() );
+					?>
+					<script>
+						$(document).ready(function($) {
+							// build scene
+							var scrollHeight = ($('div.entry-content').height()) - 230;
+							var scene = new ScrollScene({triggerElement: "#trigger1", duration: scrollHeight})
+											.setPin("#socialCount")
+											.addTo(controller);
 
+							// show indicators (requires debug extension)
+							scene.addIndicators();
+						});
+					</script>
+					<?php
 				endwhile;
 			?>
 		</div><!-- #content -->

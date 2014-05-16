@@ -44,10 +44,9 @@ get_header(); ?>
 						endwhile;
 						// Previous/next page navigation.
 						?>
-						<div class="pagination">
-							<?php previous_posts_link('%link', '<span><</span> Previous Page'); ?>
-							<?php next_posts_link( '%link', 'Next Page <span>></span>'); ?>
-							
+						<div id="pagination">
+							<?php
+							twentyfourteen_paging_nav(); ?>
 						</div>
 						<?php
 

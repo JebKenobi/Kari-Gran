@@ -12,6 +12,7 @@
 			<footer id="colophon" class="site-footer" role="contentinfo">
 
 				<?php get_sidebar( 'footer' ); ?>
+				    
 
 				<p class="copyright">Wheels Up LLC &copy; 2014 All Rights Reserved</p>
 			</footer><!-- #colophon -->

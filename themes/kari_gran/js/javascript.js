@@ -42,6 +42,28 @@ $(document).ready(function() {
       $("body").removeClass('side-how');
     }
   });
+  $(".open #nav-main #menu-item-1132").click(function () {
+      if ( $("#nav-main #menu-item-1132").hasClass( 'open' ) ) {
+        $("#nav-main #menu-item-1132").removeClass('open');
+      } else {
+        $("#nav-main #menu-item-1132").addClass('open');
+        $("div.side-cats").removeClass('open');
+        $("div.side-contact").removeClass('open');
+        $("li.shop").removeClass('open');
+        $("li.why-we-r-different").removeClass('open');
+        $("li.how-to-use").removeClass('open');
+      }
+      if ( $("body").hasClass( 'side-shop' ) ) {
+        $("body").removeClass('side-shop');
+      } else {
+        $("body").addClass('side-shop');
+        $("body").removeClass('side-cats');
+        $("body").removeClass('side-contact');
+        $("body").removeClass('side-shop');
+        $("body").removeClass('side-about');
+        $("body").removeClass('side-how');
+      }
+    });
   $("div.side-contact h3").click(function () {
     if ( $("div.side-contact").hasClass( 'open' ) ) {
       $("div.side-contact").removeClass('open');
@@ -189,5 +211,4 @@ $(document).ready(function() {
       $("body").removeClass('open');
     }
   });
-
 });
