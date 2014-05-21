@@ -7,8 +7,8 @@ function karigran_scripts() {
 
   wp_register_script( 'basic-js', get_stylesheet_directory_uri() . '/js/javascript.js', array( 'jquery' ), true );
   wp_register_script( 'sharre', get_stylesheet_directory_uri() . '/js/jquery.sharrre.js', array( 'jquery' ), true );
-  wp_register_script( 'animation_lib', 'http://cdnjs.cloudflare.com/ajax/libs/gsap/1.11.8/TweenMax.min.js', array(), true);
-  wp_register_script( 'scrollMagic', get_stylesheet_directory_uri() . '/js/jquery.scrollmagic.min.js', array( 'jquery' ), true );
+  wp_register_script( 'animation_lib', get_stylesheet_directory_uri() . '/js/TweenMax.min.js', array(), true);
+  wp_register_script( 'scrollMagic', get_stylesheet_directory_uri() . '/js/jquery.scrollmagic.js', array( 'jquery' ), true );
   
   wp_enqueue_script('jquery');
   wp_enqueue_script('basic-js');

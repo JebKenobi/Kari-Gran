@@ -35,13 +35,24 @@ get_header(); ?>
 					<script>
 						$(document).ready(function($) {
 							// build scene
-							var scrollHeight = ($('div.entry-content').height()) - 230;
-							var scene = new ScrollScene({triggerElement: "#trigger1", duration: scrollHeight})
-											.setPin("#socialCount")
-											.addTo(controller);
+							var scrollHeight = ($('div.entry-content').height()) - 275;
+							var scene = new ScrollScene({triggerElement: "#trigger1", duration: scrollHeight}).setPin("#socialCount").addTo(controller);
+							// Bind to the resize event of the window object
+							$(window).on("resize", function () {
+							    var w = $(window).width();
+							    scene.removePin(true);
+								if ( w < 600 || ((w > 768) && (w < 960))) {
+									console.log('Fixed', $( window ).width());
+									scene.enabled(false);
 
-							// show indicators (requires debug extension)
-							scene.addIndicators();
+								} else {
+									console.log('Follow', $( window ).width());
+									scene.enabled(true);
+									scene.setPin('#socialCount');
+									
+								}
+							}).resize();
+
 						});
 					</script>
 					<?php

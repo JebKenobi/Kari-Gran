@@ -241,14 +241,15 @@ header#masthead {
 					height: auto;
 				}
 			}
+
 			ul#socialCount {
 				position: absolute;
 				left: -55px;
-				top: 25px;
+				top: 0px;
+				padding-top: 40px;
 				width: 50px;
 				overflow: visible;
 				margin-left: 0;
-
 				li {
 					list-style-type: none;
 					position: relative;
@@ -1155,6 +1156,9 @@ footer {
 		color: $gry;
 		font-size: 0.8em;
 	}
+}
+.scrollmagic-pin-spacer {
+	padding-bottom: 0 !important;
 }
 @media screen and (max-width: 960px) {
 	@import "width_960";

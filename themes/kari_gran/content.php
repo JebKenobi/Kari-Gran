@@ -115,7 +115,7 @@
 					});
 					
 				</script>
-				<span id="trigger1"></span>
+				<div class="triggerToggle" id="trigger1"></div>
 		<?php } ?>
 		<?php
 			the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'twentyfourteen' ) );
