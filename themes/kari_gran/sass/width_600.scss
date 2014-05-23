@@ -44,9 +44,20 @@ body {
 				.post-thumbnail {
 					height: auto;
 				}
-
+				.scrollmagic-pin-spacer {
+					padding-top: 0 !important;
+					width: 100% !important;
+				}
+				#socialPin {
+					display: inline-block !important;
+					margin-bottom: 40px !important;
+					position: relative !important;
+					width: 100%;
+					top: 0 !important;
+					left: 0 !important;
+				}
 				ul#socialCount {
-					position: relative;
+					position: absolute !important;
 					top:0;
 					left: 0;
 					width: 100%;

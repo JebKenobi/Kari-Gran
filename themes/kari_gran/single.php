@@ -24,35 +24,46 @@ get_header(); ?>
 					?>
 					<script>
 						var controller;
-						$(document).ready(function($) {
-							// init controller
-							controller = new ScrollMagic();
-						});
 					</script>
 					<?php
 					get_template_part( 'content', get_post_format() );
 					?>
 					<script>
 						$(document).ready(function($) {
+							// init controller
+							controller = new ScrollMagic();
 							// build scene
 							var scrollHeight = ($('div.entry-content').height()) - 275;
-							var scene = new ScrollScene({triggerElement: "#trigger1", duration: scrollHeight}).setPin("#socialCount").addTo(controller);
+							var scene = new ScrollScene({triggerElement: "#trigger1", duration: scrollHeight}).setPin("#socialPin", {pushFollowers: false}).addTo(controller);
 							// Bind to the resize event of the window object
+							$(window).on("load", function() {
+								var w = $(window).width();
+								if ( w < 600 || ((w > 768) && (w < 960))) {
+									$('body').addClass('stuck');
+								}
+							});
 							$(window).on("resize", function () {
+								scene.removePin(true);
+								console.log(scene.progress());
 							    var w = $(window).width();
-							    scene.removePin(true);
 								if ( w < 600 || ((w > 768) && (w < 960))) {
 									console.log('Fixed', $( window ).width());
-									scene.enabled(false);
-
+									$('body').addClass('stickySocial');
+									var triggerOffset = 0;
 								} else {
+									$('.scrollmagic-pin-spacer').css({
+										"left": "-55px !important",
+										"top": "0px !important"
+									})
+									$('.SocialPin').css({
+										"position": "absolute"
+									})
 									console.log('Follow', $( window ).width());
-									scene.enabled(true);
-									scene.setPin('#socialCount');
-									
+									$('body').removeClass('stickySocial');
+									var triggerOffset = 0;
+									scene.setPin("#socialPin", {pushFollowers: false});
 								}
 							}).resize();
-
 						});
 					</script>
 					<?php

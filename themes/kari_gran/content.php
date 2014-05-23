@@ -55,6 +55,7 @@
 			<?php $the_permalink = get_permalink();
 			$thumb = get_the_post_thumbnail();
 			$title = get_the_title(); ?>
+			<span id="socialPin">
 				<ul id="socialCount">
 					<li id="comment_icon"><a href="<?php echo $the_permalink; ?>#comments"><div data-icon="d" class="icon"></div></a> <span class="count" id="comment_count"><?php echo get_comments_number(); ?></span> <span class="text">Comments</span></li>
 					<span class="text">Share post</span>
@@ -63,6 +64,7 @@
 					<li class="pinterest"><span id="pin_icon"></span><span class="count" id="pin_count"></span></li>
 					<li id="mail"><a href="mailto:?subject=Check%20out%20this%20article!&body=I%20found%20this%20and%20I%20think%20you'll%20like%20it:%20<?php echo $the_permalink; ?>"><div data-icon="c" class="icon"></div></a></li>
 				</ul>
+			</span>
 				<script> 
 					$('#pin_icon').sharrre({
 					  share: {
